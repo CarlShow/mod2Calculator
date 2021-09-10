@@ -105,6 +105,8 @@ class ViewController: UIViewController {
     
     func onCalc()
     {
+        textField1.resignFirstResponder()
+        textField2.resignFirstResponder()
         if let var1 = Double(textField1.text!)
         {
             if let var2 = Double(textField2.text!)
@@ -130,6 +132,8 @@ class ViewController: UIViewController {
     }
     @IBAction func onFigure(_ sender: Any)
     {
+        textField1.resignFirstResponder()
+        textField2.resignFirstResponder()
         if whichSwtich[2]
         {
             areaOfCircle()
@@ -156,5 +160,11 @@ class ViewController: UIViewController {
             ansLabel.text = String(var1*3.14)
         }
     }
-}
+    func textFeildShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField1.resignFirstResponder()
+        textField2.resignFirstResponder()
+        return true
+    }
 
+}
