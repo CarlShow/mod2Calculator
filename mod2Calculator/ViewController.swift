@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var swapper: UISegmentedControl!
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         do {
             let miniText = [NSAttributedString.Key.foregroundColor: UIColor.white]
             swapper.setTitleTextAttributes(miniText, for: .selected)
+            textField1.delegate = self
+            textField2.delegate = self
         }
         addButton.layer.cornerRadius = 5
         minusButton.layer.cornerRadius = 5
@@ -37,7 +39,21 @@ class ViewController: UIViewController {
     }
     @IBAction func onSwap(_ sender: Any)
     {
-        if didSwap == false
+        if didSwap
+        {
+            didSwap = false
+            calculateButton.isHidden = true
+            areaSwapper.isHidden = true
+            addButton.isHidden = false
+            minusButton.isHidden = false
+            multButton.isHidden = false
+            divButton.isHidden = false
+            textField2.isHidden = false
+            whichSwtich = [false, false, false]
+            textField1.placeholder = "Number 1"
+            textField2.placeholder = "Number 2"
+        }
+        else
         {
             didSwap = true
             calculateButton.isHidden = false
@@ -49,24 +65,14 @@ class ViewController: UIViewController {
             textField2.isHidden = false
             onAreaSwap((Any).self)
         }
-        else
-        {
-            didSwap = false
-            calculateButton.isHidden = true
-            areaSwapper.isHidden = true
-            addButton.isHidden = false
-            minusButton.isHidden = false
-            multButton.isHidden = false
-            divButton.isHidden = false
-            textField2.isHidden = false
-            whichSwtich = [false, false, false]
-        }
     }
     @IBAction func onAreaSwap(_ sender: Any)
     {
+        textField1.placeholder = "A"
+        textField2.placeholder = "B"
         whichSwtich = [false, false, false]
         whichSwtich[areaSwapper.selectedSegmentIndex] = true
-        print(whichSwtich)
+//        print(whichSwtich)
         if whichSwtich[0]
         {
             textField2.isHidden = false
@@ -78,6 +84,7 @@ class ViewController: UIViewController {
         else
         {
             textField2.isHidden = true
+            textField1.placeholder = "Radius"
         }
     }
     @IBAction func add(_ sender: Any)
@@ -157,10 +164,10 @@ class ViewController: UIViewController {
     {
         if let var1 = Double(textField1.text!)
         {
-            ansLabel.text = String(var1*3.14)
+            ansLabel.text = String((var1*var1)*3.14)
         }
     }
-    func textFeildShouldReturn(_ textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField1.resignFirstResponder()
         textField2.resignFirstResponder()

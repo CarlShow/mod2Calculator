@@ -16,9 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kec-hl-aXH">
-                                <rect key="frame" x="10" y="44" width="395" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kec-hl-aXH">
+                                <rect key="frame" x="10" y="44" width="394" height="32"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Kec-hl-aXH" secondAttribute="height" multiplier="394:31" id="FaL-zd-uqK"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Generic Calculator"/>
                                     <segment title="Area of a Figure"/>
@@ -99,12 +102,13 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dAw-yt-YKf" firstAttribute="leading" secondItem="JBk-Jy-8bp" secondAttribute="leading" constant="210" id="7Gw-po-jld"/>
+                                    <constraint firstAttribute="width" secondItem="JBk-Jy-8bp" secondAttribute="height" multiplier="358:73" id="RZg-dj-eXf"/>
                                     <constraint firstAttribute="trailing" secondItem="dAw-yt-YKf" secondAttribute="trailing" id="ySu-of-p0i"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Answer -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPL-32-vc3">
                                 <rect key="frame" x="73" y="755" width="269" height="72"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="VZZ-Jn-5Is"/>
                                 </constraints>
@@ -115,6 +119,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-7j-u5f">
                                 <rect key="frame" x="239" y="83" width="147" height="73"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ks0-7j-u5f" secondAttribute="height" multiplier="147:73" id="hEc-2q-tp6"/>
+                                </constraints>
                                 <state key="normal" title="Calculate"/>
                                 <connections>
                                     <action selector="onFigure:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pcL-rj-cwE"/>
@@ -122,6 +129,10 @@
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zN8-Ky-w7V">
                                 <rect key="frame" x="20" y="164" width="366" height="32"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zN8-Ky-w7V" secondAttribute="height" multiplier="366:31" id="2uN-nn-0pN"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Figure"/>
                                     <segment title="Triangle"/>
@@ -133,7 +144,7 @@
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ks0-7j-u5f" firstAttribute="trailing" secondItem="JBk-Jy-8bp" secondAttribute="trailing" id="0OX-cc-Lk0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jPL-32-vc3" secondAttribute="bottom" constant="35" id="GoV-vb-eQs"/>
@@ -175,12 +186,6 @@
     <resources>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
