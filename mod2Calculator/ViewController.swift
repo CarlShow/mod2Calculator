@@ -83,6 +83,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         else
         {
+            textField2.resignFirstResponder()
             textField2.isHidden = true
             textField1.placeholder = "Radius"
         }
